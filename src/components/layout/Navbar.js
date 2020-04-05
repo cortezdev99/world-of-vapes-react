@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import Logo from '../../images/logo-images/worldofvape.png'
 import SignedInLinks from './SignedInLinks'
-// import SignedOutLinks from './SignedOutLinks'
+import SignedOutLinks from './SignedOutLinks'
 
 const Navbar = () => {
   return (
@@ -27,7 +27,8 @@ const Navbar = () => {
         <Link to="/" className="logo"><img src={Logo} alt="logo"/></Link>
       </div>
 
-      <SignedInLinks />
+      {/* <SignedInLinks /> */}
+      <SignedOutLinks />
     </div>
 
 
