@@ -1,0 +1,124 @@
+.navbar-container {
+  height: 190px;
+  background-color: #131416;
+  color: #cbcbcb;
+  Display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 100px;
+  border: .50rem solid #d5a33a;
+}
+
+.navbar-container > .left-column {
+  display: flex;
+  width: 20%;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-column > .phone-icon-wrapper i {
+  font-size: 3rem;
+  margin-right: 10px;
+  color: lightgray;
+}
+
+.navbar-container > .left-column > .hours-number-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.hours-number-wrapper > .call-num p {
+  padding-left: 2.75rem;
+  font-size: 1.1rem;
+}
+
+.hours-number-wrapper > .phone-num {
+  font-size: 1.25rem;
+  padding-bottom: 5px;
+  color: lightgray;
+  margin: 0px;
+  text-decoration: none;
+}
+
+.hours-number-wrapper > .phone-num:hover {
+  color: #d5a33a;
+}
+
+.hours-number-wrapper p {
+  text-decoration: none;
+  color: lightgray;
+  margin: 0px;
+}
+
+.navbar-container > .center-column {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  align-items: center;
+}
+
+.navbar-container > .center-column > .logo img {
+  width: 15rem;
+}
+
+.center-column > .links {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+}
+
+.center-column > .links > .link {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.center-column > .links > .link a {
+  text-decoration: none;
+  color: white;
+  transition: 0.5s;
+}
+
+.center-column > .links > .link a:hover {
+  color: #d5a33a;
+  letter-spacing: 2px;
+}
+
+.navbar-container > .right-column {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.address-wrapper > .get-directions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.address-wrapper > .get-directions p {
+  margin: 0px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.right-column > .address-wrapper a {
+  text-decoration: none;
+  color: lightgray;
+  font-size: 1.1rem;
+  display: flex;
+  text-align: end;
+  cursor: pointer;
+}
+
+.right-column > .address-wrapper a:hover {
+  color: #d5a33a;
+}
+
+.right-column > .map-icon-wrapper {
+  font-size: 3rem;
+  margin-left: 10px;
+  color: lightgray;
+}
