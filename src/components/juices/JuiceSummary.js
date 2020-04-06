@@ -15,3 +15,5 @@ const JuiceSummary = () => {
     </div>
   )
 }
+
+export default JuiceSummary
