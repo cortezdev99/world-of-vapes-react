@@ -8,6 +8,9 @@ import JuiceDetails from './components/juices/JuiceDetails'
 import GlassDetails from './components/glass/GlassDetails'
 import DevicesDetails from './components/devices/DevicesDetails'
 import SignIn from './components/auth/SignIn';
+import CreateJuice from './components/juices/CreateJuice'
+import CreateGlass from './components/glass/CreateGlass';
+import CreateDevices from './components/devices/CreateDevices';
 
 class App extends Component {
   render() {
@@ -21,6 +24,9 @@ class App extends Component {
               <Route path='/glass/:id' component={GlassDetails} />
               <Route path='/devices/:id' component={DevicesDetails} />
               <Route path='/auth' component={SignIn} />
+              <Route path='/createjuice' component={CreateJuice} />
+              <Route path='/createglass' component={CreateGlass} />
+              <Route path='/createdevice' component={CreateDevices} />
             </Switch>
           <Footer />
         </div>
