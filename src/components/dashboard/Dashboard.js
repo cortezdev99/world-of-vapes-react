@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 
 
-import slide1 from '../../images/logo-images/27912777_1883853358572185_2027341723001519021_o.jpg'
-import slide2 from '../../images/logo-images/21462252_1819656434991878_7323414897475794928_n.jpg'
-import slide3 from '../../images/logo-images/18921834_1780181655606023_254700353966457051_n.jpg'
-import slide4 from '../../images/logo-images/20992642_1814290458861809_8490681797604641240_n.jpg'
+// import slide1 from '../../images/logo-images/80046262_2334526453504871_3559417772481970176_o.jpg'
+import slide1 from '../../images/logo-images/26756251_1873079179649603_4166569873830448498_o.jpg'
+// import slide3 from '../../images/logo-images/32911355_1928413534116167_3691975796269776896_n (1).jpg'
+import slide2 from '../../images/logo-images/27912777_1883853358572185_2027341723001519021_o.jpg'
+import slide3 from '../../images/logo-images/21462252_1819656434991878_7323414897475794928_n.jpg'
+import slide4 from '../../images/logo-images/18921834_1780181655606023_254700353966457051_n.jpg'
+import slide5 from '../../images/logo-images/20992642_1814290458861809_8490681797604641240_n.jpg'
 
 import brand1 from '../../images/brands-images/wotofo.jpg'
 import brand2 from '../../images/brands-images/wismec.jpg'
@@ -21,24 +24,53 @@ import brand12 from '../../images/brands-images/hellvape.jpg'
 
 
 class Dashboard extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      index: 0
+    }
+  }
   render() {
+    const slideshowList = [slide1, slide2, slide3, slide4, slide5]
+
+    const handleSlideLeftClick = () => {
+      if (this.state.index === 0) {
+        return (
+          this.setState({
+            index: slideshowList.length - 1
+          }) 
+        )
+      } else {
+        return (
+          this.setState({
+            index: this.state.index - 1
+            })
+          )
+      }
+    }
+
+    const handleSlideRightClick = () => {
+      if (this.state.index === slideshowList.length - 1) {
+        return this.setState({
+          index: 0
+        })
+      } else {
+        return this.setState({
+          index: this.state.index + 1
+        })
+      }
+    }
     return (
       <div className="dashboard-container">
         <div className="slideshow-container">
-          <div className="mySlides fade">
-            <img src={slide1} alt="logo"/>
+          <div className="mySlides">
+            <img src={slideshowList[this.state.index]} alt="logo"/>
           </div>
 
-          <div className="mySlides fade">
-            <img src={slide2} alt="logo"/>
-          </div>
-
-          <div className="mySlides fade">
-            <img src={slide3} alt="logo"/>
-          </div>
-
-          <div className="mySlides fade">
-            <img src={slide4} alt="logo"/>
+          <div className="slideshow-buttons">
+            <button onClick={handleSlideLeftClick}>Left</button>
+            <button onClick={handleSlideRightClick}>Right</button>
           </div>
         </div>
 
@@ -146,7 +178,7 @@ class Dashboard extends Component {
           </div>
         </div>
 
-        <div class="googlemaps">
+        <div className="googlemaps">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.686725226506!2d-111.94323618467232!3d40.68087104745639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87528b8349761533%3A0x3e62dacdc03ca41a!2sWorld%20Of%20Vapes!5e0!3m2!1sen!2sus!4v1582389643496!5m2!1sen!2sus"></iframe>
         </div>
       </div>
