@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import Dashboard from './components/dashboard/Dashboard'
 import Footer from './components/layout/Footer'
+import JuiceDetails from './components/juices/JuiceDetails'
 
 class App extends Component {
   render() {
@@ -12,7 +13,8 @@ class App extends Component {
         <div className="App">
           <Navbar />
             <Switch>
-              <Route exact to='/' component={Dashboard} />
+              <Route exact path='/' component={Dashboard} />
+              <Route path='/juices/:id' component={JuiceDetails} />
             </Switch>
           <Footer />
         </div>
