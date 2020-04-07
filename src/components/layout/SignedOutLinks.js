@@ -13,11 +13,11 @@ const SignedOutLinks = () => {
       </div>
 
       <div className="link">
-        <NavLink to="/glass">Juice</NavLink>
+        <NavLink to="/glass">Glass</NavLink>
       </div>
 
       <div className="link">
-        <NavLink to="/juice">Glass</NavLink>
+        <NavLink to="/juice">Juice</NavLink>
       </div>
     </div>
   )

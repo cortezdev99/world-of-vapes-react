@@ -1,6 +1,6 @@
 import React from 'react'
 
-const JuiceSummary = () => {
+const JuiceSummary = ({ juice }) => {
   return (
     <div>
       <div className="img">
@@ -8,9 +8,8 @@ const JuiceSummary = () => {
         </div>
 
         <div className="list-content">
-          <span>Juice Title</span>
-          <p>Descript</p>
-          <p>flavors</p>
+          <span>{juice.brand}</span>
+          <p>{juice.descript}</p>
         </div>
     </div>
   )

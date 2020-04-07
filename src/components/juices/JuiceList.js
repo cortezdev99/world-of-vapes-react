@@ -2,13 +2,14 @@ import React from 'react'
 
 import JuiceSummary from './JuiceSummary'
 
-const JuiceList = () => {
+const JuiceList = ({juices}) => {
   return (
     <div className="list-container">
-      <JuiceSummary />
-      <JuiceSummary />
-      <JuiceSummary />
-      <JuiceSummary />
+      { juices && juices.map(juice => {
+        return (
+        <JuiceSummary juice={juice} key={juice.id}/>
+        )
+      })}
     </div>
   )
 }

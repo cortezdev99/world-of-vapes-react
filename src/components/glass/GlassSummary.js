@@ -1,6 +1,6 @@
 import React from 'react'
 
-const GlassSummary = () => {
+const GlassSummary = ({glass}) => {
   return (
     <div>
       <div className="img">
@@ -8,8 +8,8 @@ const GlassSummary = () => {
         </div>
 
         <div className="list-content">
-          <span>Glass Title</span>
-          <p>Descript</p>
+          <span>{glass.brand}</span>
+          <p>{glass.descript}</p>
         </div>
     </div>
   )

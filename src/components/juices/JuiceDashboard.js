@@ -5,12 +5,19 @@ import JuiceList from './JuiceList'
 
 class JuiceDashboard extends Component {
   render() {
+    const { juices } = this.props
     return (
       <div>
-        <JuiceList />
+        <JuiceList juices={juices} />
       </div>
     )
   }
 }
 
-export default connect()(JuiceDashboard)
+const mapStateToProps = (state) => {
+  return {
+    juices: state.juice.juices
+  }
+}
+
+export default connect(mapStateToProps)(JuiceDashboard)

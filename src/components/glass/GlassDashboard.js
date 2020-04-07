@@ -5,12 +5,19 @@ import GlassList from './GlassList'
 
 class GlassDashboard extends Component {
   render() {
+    const { glass } = this.props
     return (
       <div>
-        <GlassList />
+        <GlassList glasses={glass}/>
       </div>
     )
   }
 }
 
-export default connect()(GlassDashboard)
+const mapStateToProps = (state) => {
+  return {
+    glass: state.glass.glass
+  }
+}
+
+export default connect(mapStateToProps)(GlassDashboard)

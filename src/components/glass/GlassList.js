@@ -2,13 +2,14 @@ import React from 'react'
 
 import GlassSummary from './GlassSummary'
 
-const GlassList = () => {
+const GlassList = ({glasses}) => {
   return (
     <div className="list-container">
-      <GlassSummary />
-      <GlassSummary />
-      <GlassSummary />
-      <GlassSummary />
+      { glasses && glasses.map(glass => {
+        return (
+        <GlassSummary glass={glass} key={glass.id}/>
+        )
+      })}
     </div>
   )
 }

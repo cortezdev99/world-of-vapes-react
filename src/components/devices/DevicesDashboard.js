@@ -5,12 +5,19 @@ import DevicesList from './DevicesList'
 
 class DevicesDashboard extends Component {
   render() {
+    const { devices } = this.props
     return (
       <div>
-        <DevicesList />
+        <DevicesList devices={devices}/>
       </div>
     )
   }
 }
 
-export default connect()(DevicesDashboard)
+const mapStateToProps = (state) => {
+  return {
+    devices: state.devices.devices
+  }
+}
+
+export default connect(mapStateToProps)(DevicesDashboard)

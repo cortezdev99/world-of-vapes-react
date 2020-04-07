@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DevicesSummary = () => {
+const DevicesSummary = ({device}) => {
   return (
     <div>
       <div className="img">
@@ -8,9 +8,9 @@ const DevicesSummary = () => {
         </div>
 
         <div className="list-content">
-          <span>Device Title</span>
-          <p>Descript</p>
-          <p>Colors</p>
+          <span>{device.brand}</span>
+          <p>{device.deviceTitle}</p>
+          <p>{device.descript}</p>
         </div>
     </div>
   )
