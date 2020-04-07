@@ -9,31 +9,27 @@ const SignedInLinks = () => {
       </div>
 
       <div className="link">
-        <NavLink to="/">Devices</NavLink>
+        <NavLink to="/devices">Devices</NavLink>
       </div>
 
       <div className="link">
-        <NavLink to="/">Juice</NavLink>
+        <NavLink to="/glass">Juice</NavLink>
       </div>
 
       <div className="link">
-        <NavLink to="/">Glass</NavLink>
+        <NavLink to="/juice">Glass</NavLink>
       </div>
 
       <div className="link">
-        <NavLink to="/">Contact</NavLink>
+        <NavLink to="/createdevice">Create Devices</NavLink>
       </div>
 
       <div className="link">
-        <NavLink to="/">Create Devices</NavLink>
+        <NavLink to="/createjuice">Create Juice</NavLink>
       </div>
 
       <div className="link">
-        <NavLink to="/">Create Juice</NavLink>
-      </div>
-
-      <div className="link">
-        <NavLink to="/">Create Glass</NavLink>
+        <NavLink to="/createjuice">Create Glass</NavLink>
       </div>
 
       <div className="link">

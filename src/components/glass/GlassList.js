@@ -1,6 +1,6 @@
 import React from 'react'
 
-import GlassSummary from './JuiceSummary'
+import GlassSummary from './GlassSummary'
 
 const GlassList = () => {
   return (

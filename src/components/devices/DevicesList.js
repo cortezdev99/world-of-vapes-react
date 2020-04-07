@@ -1,8 +1,8 @@
 import React from 'react'
 
-import DevicesSummary from './JuiceSummary'
+import DevicesSummary from './DevicesSummary'
 
-const JuiceList = () => {
+const DeviceList = () => {
   return (
     <div className="list-container">
       <DevicesSummary />
@@ -13,4 +13,4 @@ const JuiceList = () => {
   )
 }
 
-export default JuiceList
+export default DeviceList

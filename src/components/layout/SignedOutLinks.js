@@ -5,23 +5,19 @@ const SignedOutLinks = () => {
   return (
     <div className="links">
       <div className="link">
-        <NavLink to="/">Homepage</NavLink>
+          <NavLink to="/">Homepage</NavLink>
       </div>
 
       <div className="link">
-        <NavLink to="/">Devices</NavLink>
+        <NavLink to="/devices">Devices</NavLink>
       </div>
 
       <div className="link">
-        <NavLink to="/">Juice</NavLink>
+        <NavLink to="/glass">Juice</NavLink>
       </div>
 
       <div className="link">
-        <NavLink to="/">Glass</NavLink>
-      </div>
-
-      <div className="link">
-        <NavLink to="/">Contact</NavLink>
+        <NavLink to="/juice">Glass</NavLink>
       </div>
     </div>
   )
