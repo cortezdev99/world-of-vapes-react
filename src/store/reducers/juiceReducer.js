@@ -6,8 +6,12 @@ const initState = {
   ]
 }
 
-const authReducer  = (state = initState, action) => {
+const juiceReducer  = (state = initState, action) => {
+  switch (action.type) {
+    case 'CREATE_JUICE':
+      console.log('created juice', action.juice)
+  }
   return state
 }
 
-export default authReducer
+export default juiceReducer

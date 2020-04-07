@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class CreateJuice extends Component {
+import { createJuice } from '../../store/actions/juiceActions'
+
+class CreateJuice extends Component {
   constructor() {
     super()
     this.state = {
@@ -20,7 +23,7 @@ export default class CreateJuice extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state)
+    this.props.createJuice(this.state)
   }
   
   render() {
@@ -72,3 +75,11 @@ export default class CreateJuice extends Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createJuice: (juice) => dispatch(createJuice(juice))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(CreateJuice)

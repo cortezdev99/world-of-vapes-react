@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class CreateDevices extends Component {
+import { createDevices } from '../../store/actions/devicesActions'
+
+class CreateDevices extends Component {
   constructor() {
     super()
     this.state = {
@@ -21,7 +24,7 @@ export default class CreateDevices extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state)
+    this.props.createDevices(this.state)
   }
   
   render() {
@@ -37,7 +40,7 @@ export default class CreateDevices extends Component {
             />
 
             <input
-              id="brandTitle"
+              id="deviceTitle"
               type="text"
               placeholder="Device Name"
               onChange={this.handleChange}
@@ -80,3 +83,11 @@ export default class CreateDevices extends Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createDevices: (device) => dispatch(createDevices(device))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(CreateDevices)

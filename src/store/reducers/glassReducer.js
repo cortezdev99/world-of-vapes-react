@@ -6,8 +6,12 @@ const initState = {
   ]
 }
 
-const authReducer  = (state = initState, action) => {
+const glassReducer  = (state = initState, action) => {
+  switch (action.type) {
+    case 'CREATE_GLASS':
+      console.log('created glass', action.glass)
+  }
   return state
 }
 
-export default authReducer
+export default glassReducer

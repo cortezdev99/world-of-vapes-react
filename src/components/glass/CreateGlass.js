@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class CreateGlass extends Component {
+import { createGlass } from '../../store/actions/glassActions'
+
+class CreateGlass extends Component {
   constructor() {
     super()
     this.state = {
@@ -18,7 +21,7 @@ export default class CreateGlass extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state)
+    this.props.createGlass(this.state)
   }
   
   render() {
@@ -56,3 +59,11 @@ export default class CreateGlass extends Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createGlass: (glass) => dispatch(createGlass(glass))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(CreateGlass)

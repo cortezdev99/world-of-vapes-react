@@ -6,8 +6,12 @@ const initState = {
   ]
 }
 
-const authReducer  = (state = initState, action) => {
+const devicesReducer  = (state = initState, action) => {
+  switch (action.type) {
+    case 'CREATE_DEVICE':
+      console.log('created device', action.device)
+  }
   return state
 }
 
-export default authReducer
+export default devicesReducer
