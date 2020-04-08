@@ -27,10 +27,6 @@ const Footer = () => {
           <div className="link">
             <Link to="/" >Glass</Link>
           </div>
-
-          <div className="link">
-            <Link to="/" >Contact</Link>
-          </div>
         </div>
 
         <div className="connect-with-us">

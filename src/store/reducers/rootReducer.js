@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import { firestoreReducer } from 'redux-firestore'
+import { firebaseReducer } from 'react-redux-firebase'
 
 import authReducer from './authReducer'
 import devicesReducer from './devicesReducer'
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
   devices: devicesReducer,
   glass: glassReducer,
   juice: juiceReducer,
-  firestore: firestoreReducer
+  firestore: firestoreReducer,
+  firebase: firebaseReducer
 })
 
 export default rootReducer;
