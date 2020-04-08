@@ -17,7 +17,6 @@ class JuiceDashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     juices: state.firestore.ordered.juices
   }

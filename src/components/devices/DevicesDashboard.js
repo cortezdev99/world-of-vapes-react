@@ -17,7 +17,6 @@ class DevicesDashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     devices: state.firestore.ordered.devices
   }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import JuiceSummary from './JuiceSummary'
 
@@ -7,7 +8,9 @@ const JuiceList = ({juices}) => {
     <div className="list-container">
       { juices && juices.map(juice => {
         return (
-        <JuiceSummary juice={juice} key={juice.id}/>
+          <Link to={`/juices/${juice.id}`} key={juice.id}>
+            <JuiceSummary juice={juice}/>
+          </Link>
         )
       })}
     </div>

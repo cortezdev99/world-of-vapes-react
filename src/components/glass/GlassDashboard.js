@@ -17,7 +17,6 @@ class GlassDashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     glass: state.firestore.ordered.glass
   }

@@ -1,19 +1,42 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 
 const GlassDetails = (props) => {
-  const id = props.match.params.id
-  return (
-    <div className="details-container">
-      <div className="img-details">
-        <p>img goes here</p>
+  const { glass } = props
+  if (glass) {
+    return (
+      <div className="details-container">
+        <div className="img-details">
+          <p>img goes here</p>
+        </div>
+  
+        <div className="content-details">
+          <p>{glass.brand}</p>
+          <p>{glass.descript}</p>
+          <p>{glass.size}</p>
+        </div>
       </div>
-
-      <div className="content-details">
-        <p>Brand Title - {id}</p>
-        <p>Descript</p>
-      </div>
-    </div>
-  )
+    )
+  } else {
+    return <div>Loading...</div>
+  }
 }
 
-export default GlassDetails
+
+const mapStateToProps = (state, props) => {
+  const id = props.match.params.id;
+  const glasses = state.firestore.data.glass;
+  const glass = glasses ? glasses[id] : null
+  return {
+    glass: glass
+  }
+}
+
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection : "glass" }
+])
+)(GlassDetails)
