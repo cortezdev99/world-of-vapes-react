@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class SignIn extends Component {
+import { signIn } from '../../store/actions/authActions'
+import { tsThisType } from '@babel/types'
+
+class SignIn extends Component {
   constructor() {
     super()
     this.state = {
@@ -17,10 +21,11 @@ export default class SignIn extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state)
+    this.props.signIn(this.state)
   }
   
   render() {
+    const { authError } = this.props
     return (
       <div className="signin-container">
         <form onSubmit={this.handleSubmit}>
@@ -43,6 +48,7 @@ export default class SignIn extends Component {
 
             <div className="form-button">
               <button>Login</button>
+              { authError ? <div className="error">{authError}</div> : null}
             </div>
           </div>
         </form>
@@ -50,3 +56,17 @@ export default class SignIn extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    authError: state.auth.authError
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signIn: (creds) => dispatch(signIn(creds))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
