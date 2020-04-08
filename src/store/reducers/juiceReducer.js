@@ -10,8 +10,13 @@ const juiceReducer  = (state = initState, action) => {
   switch (action.type) {
     case 'CREATE_JUICE':
       console.log('created juice', action.juice)
+      return state;
+    case 'CREATE_JUICE_ERR':
+      console.log('create juice error', action.err);
+      return state;
+    default:
+      return state;
   }
-  return state
 }
 
 export default juiceReducer

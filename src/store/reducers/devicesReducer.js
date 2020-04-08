@@ -10,8 +10,13 @@ const devicesReducer  = (state = initState, action) => {
   switch (action.type) {
     case 'CREATE_DEVICE':
       console.log('created device', action.device)
+      return state;
+    case 'CREATE_DEVICE_ERR':
+      console.log('create device error', action.err);
+      return state;
+    default:
+      return state;
   }
-  return state
 }
 
 export default devicesReducer

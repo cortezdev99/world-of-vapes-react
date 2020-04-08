@@ -1,6 +1,13 @@
 export const createGlass = (glass) => {
-  return (dispatch, getState) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
     // make async call to database
-    dispatch({ type: 'CREATE_GLASS', glass})
+    const firestore = getFirestore()
+    firestore.collection('glass').add({
+      ...glass
+    }).then(() => {
+      dispatch({ type: 'CREATE_GLASS', glass })
+    }).catch((err) => {
+      dispatch({ type: 'CREATE_GLASS_ERR', err })
+    })
   }
 }

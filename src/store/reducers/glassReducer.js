@@ -10,8 +10,13 @@ const glassReducer  = (state = initState, action) => {
   switch (action.type) {
     case 'CREATE_GLASS':
       console.log('created glass', action.glass)
+      return state;
+    case 'CREATE_GLASS_ERR':
+      console.log('create glass error', action.err);
+      return state;
+    default:
+      return state;
   }
-  return state
 }
 
 export default glassReducer

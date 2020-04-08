@@ -1,6 +1,13 @@
 export const createDevices = (device) => {
-  return (dispatch, getState) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
     // make async call to database
-    dispatch({ type: 'CREATE_DEVICE', device})
+    const firestore = getFirestore();
+    firestore.collection('devices').add({
+      ...device
+    }).then(() => {
+      dispatch({ type: 'CREATE_DEVICE', device })
+    }).catch((err) => {
+      dispatch({ type: 'CREATE_DEVICE_ERR', err })
+    })
   }
 }
