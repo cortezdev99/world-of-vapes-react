@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 
 import JuiceList from './JuiceList'
 
@@ -15,9 +17,15 @@ class JuiceDashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
-    juices: state.juice.juices
+    juices: state.firestore.ordered.juices
   }
 }
 
-export default connect(mapStateToProps)(JuiceDashboard)
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'juices' }
+  ])
+)(JuiceDashboard)

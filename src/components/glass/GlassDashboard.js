@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 
 import GlassList from './GlassList'
 
@@ -15,9 +17,15 @@ class GlassDashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
-    glass: state.glass.glass
+    glass: state.firestore.ordered.glass
   }
 }
 
-export default connect(mapStateToProps)(GlassDashboard)
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'glass'}
+  ])
+)(GlassDashboard)
