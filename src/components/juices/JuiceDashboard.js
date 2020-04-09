@@ -8,6 +8,11 @@ import JuiceList from './JuiceList'
 class JuiceDashboard extends Component {
   render() {
     const { juices } = this.props
+
+    if (!juices) {
+      return <div>Loading...</div>
+    }
+
     return (
       <div>
         <JuiceList juices={juices} />

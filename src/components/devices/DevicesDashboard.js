@@ -8,6 +8,10 @@ import DevicesList from './DevicesList'
 class DevicesDashboard extends Component {
   render() {
     const { devices } = this.props
+    if (!devices) {
+      return <div>Loading...</div>
+    }
+
     return (
       <div>
         <DevicesList devices={devices}/>

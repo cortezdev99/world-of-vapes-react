@@ -8,6 +8,11 @@ import GlassList from './GlassList'
 class GlassDashboard extends Component {
   render() {
     const { glass } = this.props
+
+    if (!glass) {
+      return <div>Loading...</div>
+    }
+
     return (
       <div>
         <GlassList glasses={glass}/>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 import { createGlass } from '../../store/actions/glassActions'
 
@@ -25,6 +26,8 @@ class CreateGlass extends Component {
   }
   
   render() {
+    const { auth } = this.props
+    if (!auth.uid) return <Redirect to="/auth" />
     return (
       <div className="signin-container">
         <form onSubmit={this.handleSubmit}>
@@ -60,10 +63,17 @@ class CreateGlass extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  console.log(state.firebase.auth)
+  return {
+    auth: state.firebase.auth
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     createGlass: (glass) => dispatch(createGlass(glass))
   }
 }
 
-export default connect(null, mapDispatchToProps)(CreateGlass)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateGlass)

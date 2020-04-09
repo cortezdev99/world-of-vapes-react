@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 import { createDevices } from '../../store/actions/devicesActions'
 
@@ -28,6 +29,8 @@ class CreateDevices extends Component {
   }
   
   render() {
+    const { auth } = this.props
+    if (!auth.uid) return <Redirect to="/auth" />
     return (
       <div className="signin-container">
         <form onSubmit={this.handleSubmit}>
@@ -84,10 +87,16 @@ class CreateDevices extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     createDevices: (device) => dispatch(createDevices(device))
   }
 }
 
-export default connect(null, mapDispatchToProps)(CreateDevices)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateDevices)

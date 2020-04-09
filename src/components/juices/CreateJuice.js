@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 import { createJuice } from '../../store/actions/juiceActions'
 
@@ -27,6 +28,8 @@ class CreateJuice extends Component {
   }
   
   render() {
+    const { auth } = this.props
+    if (!auth.uid) return <Redirect to="/auth" />
     return (
       <div className="signin-container">
         <form onSubmit={this.handleSubmit}>
@@ -76,10 +79,16 @@ class CreateJuice extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     createJuice: (juice) => dispatch(createJuice(juice))
   }
 }
 
-export default connect(null, mapDispatchToProps)(CreateJuice)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateJuice)
