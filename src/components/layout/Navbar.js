@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import Logo from '../../images/logo-images/worldofvape.png'
 import SignedInLinks from './SignedInLinks'
@@ -27,8 +28,8 @@ const Navbar = () => {
         <Link to="/" className="logo"><img src={Logo} alt="logo"/></Link>
       </div>
 
-      {/* <SignedInLinks /> */}
-      <SignedOutLinks />
+      <SignedInLinks />
+      {/* <SignedOutLinks /> */}
     </div>
 
 
@@ -50,4 +51,10 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+const mapStateToProps = (state) => {
+  return {
+
+  }
+}
+
+export default connect(mapStateToProps)(Navbar)
