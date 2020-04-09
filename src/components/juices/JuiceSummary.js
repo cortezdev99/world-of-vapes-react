@@ -2,13 +2,13 @@ import React from 'react'
 
 const JuiceSummary = ({ juice }) => {
   return (
-    <div>
+    <div className="summary-div">
       <div className="img">
           <p>Image goes here</p>
         </div>
 
         <div className="list-content">
-          <span>{juice.brand}</span>
+          <p>{juice.brand}</p>
           <p>{juice.descript}</p>
         </div>
     </div>

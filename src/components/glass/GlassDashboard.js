@@ -14,7 +14,7 @@ class GlassDashboard extends Component {
     }
 
     return (
-      <div>
+      <div className="list-dashboard-container">
         <GlassList glasses={glass}/>
       </div>
     )

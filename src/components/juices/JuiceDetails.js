@@ -4,28 +4,44 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 
 const JuiceDetails = (props) => {
-  const id = props.match.params.id
-  console.log(props)
   const { juice } = props
-  if (juice) {
-    return (
-      <div className="details-container">
-        <div className="img-details">
-          <p>img goes here</p>
+  if (!juice) return <div>Loading...</div>
+
+  return (
+    <div className="details-container">
+      <div className="img-details">
+        <p>img goes here</p>
+      </div>
+
+      <div className="content-details">
+        <div className="default-info">
+          <div className="group">
+            <p className="brand">Brand</p>
+            <p>{juice.brand}</p>
+          </div>
         </div>
-  
-        <div className="content-details">
-          <p>{juice.brand}</p>
-          <p>{juice.descript}</p>
+
+        <div className="dynamic-info">
+          <p className="brand">Colors</p>
           { juice.flavor1 ? <p>{juice.flavor1}</p> : null }
           { juice.flavor2 ? <p>{juice.flavor2}</p> : null }
           { juice.flavor3 ? <p>{juice.flavor3}</p> : null }
         </div>
+
+        <div className="descript">
+          <div>
+            <p className="brand">Description</p>
+          </div>
+
+          <div className="descript-div">
+            <p className="descript-p">
+              {juice.descript}
+            </p>
+          </div>
+        </div>
       </div>
-    )
-  } else {
-    return <div>Loading...</div>
-  }
+    </div>
+  )
 }
 
 const mapStateToProps = (state, props) => {

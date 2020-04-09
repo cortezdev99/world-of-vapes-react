@@ -5,23 +5,43 @@ import { compose } from 'redux'
 
 const GlassDetails = (props) => {
   const { glass } = props
-  if (glass) {
-    return (
-      <div className="details-container">
-        <div className="img-details">
-          <p>img goes here</p>
+  if (!glass) return <div>Loading...</div>
+
+  return (
+    <div className="details-container">
+      <div className="img-details">
+        <p>img goes here</p>
+      </div>
+
+      <div className="content-details">
+        <div className="default-info">
+          <div className="group">
+            <p className="brand">Brand</p>
+            <p>{glass.brand}</p>
+          </div>
         </div>
-  
-        <div className="content-details">
-          <p>{glass.brand}</p>
-          <p>{glass.descript}</p>
+
+        <div className="dynamic-info">
+          <p className="brand">Size</p>
           <p>{glass.size}</p>
         </div>
+
+        <div className="descript">
+          <div>
+            <p className="brand">
+              Description / Specs
+            </p>
+          </div>
+
+          <div className="descript-div">
+            <p className="descript-p">
+              {glass.descript}
+            </p>
+          </div>
+        </div>
       </div>
-    )
-  } else {
-    return <div>Loading...</div>
-  }
+    </div>
+  )
 }
 
 

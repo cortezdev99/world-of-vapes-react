@@ -14,7 +14,7 @@ class JuiceDashboard extends Component {
     }
 
     return (
-      <div>
+      <div className="list-dashboard-container">
         <JuiceList juices={juices} />
       </div>
     )

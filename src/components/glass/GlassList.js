@@ -8,7 +8,7 @@ const GlassList = ({glasses}) => {
     <div className="list-container">
       { glasses && glasses.map(glass => {
         return (
-          <Link to={`/glass/${glass.id}`} key={glass.id}>
+          <Link to={`/glass/${glass.id}`} key={glass.id} className="dashboard-link">
             <GlassSummary glass={glass} />
           </Link>
         )

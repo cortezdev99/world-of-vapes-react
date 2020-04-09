@@ -8,7 +8,7 @@ const JuiceList = ({juices}) => {
     <div className="list-container">
       { juices && juices.map(juice => {
         return (
-          <Link to={`/juices/${juice.id}`} key={juice.id}>
+          <Link to={`/juices/${juice.id}`} key={juice.id} className="dashboard-link">
             <JuiceSummary juice={juice}/>
           </Link>
         )

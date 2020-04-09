@@ -5,26 +5,46 @@ import { compose } from 'redux'
 
 const DeviceDetails = (props) => {
   const { device } = props
-    if (device) {
-      return (
-        <div className="details-container">
-          <div className="img-details">
-            <p>img goes here</p>
+    if (!device) return <div>Loading...</div>
+
+  return (
+      <div className="details-container">
+        <div className="img-details">
+          <p>img goes here</p>
+        </div>
+  
+        <div className="content-details">
+          <div className="default-info">
+            <div className="group">
+              <p className="brand">Brand</p>
+              <p>{ device.brand }</p>
+            </div>
+
+            <div className="group">
+              <p className="brand">Device</p>
+              <p>{ device.deviceTitle }</p>
+            </div>
           </div>
-    
-          <div className="content-details">
-            <p>{ device.brand }</p>
-            <p>{ device.deviceTitle }</p>
-            <p>{ device.descript }</p>
+
+          <div className="dynamic-info">
+            <p className="brand">Colors</p>
             { device.color1 ? <p>{ device.color1 }</p> : null}
             { device.color2 ? <p>{ device.color2 }</p> : null}
             { device.color3 ? <p>{ device.color3 }</p> : null}
           </div>
+
+          <div className="descript">
+            <div>
+              <p className="brand">Description / Specs</p>
+            </div>
+
+            <div className="descript-div">
+              <p className="descript-p">{ device.descript }</p>
+            </div>
+          </div>
         </div>
-      )
-    } else {
-      return <div>Loading...</div>
-    }
+      </div>
+    )
 }
 
 const mapStateToProps = (state, props) => {

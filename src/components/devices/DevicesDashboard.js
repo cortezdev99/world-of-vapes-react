@@ -13,7 +13,7 @@ class DevicesDashboard extends Component {
     }
 
     return (
-      <div>
+      <div className="list-dashboard-container">
         <DevicesList devices={devices}/>
       </div>
     )

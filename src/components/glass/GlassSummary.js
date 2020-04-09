@@ -2,7 +2,7 @@ import React from 'react'
 
 const GlassSummary = ({glass}) => {
   return (
-    <div>
+    <div className="summary-div">
       <div className="img">
           <p>Image goes here</p>
         </div>
