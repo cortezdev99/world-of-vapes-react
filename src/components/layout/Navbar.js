@@ -6,7 +6,9 @@ import Logo from '../../images/logo-images/worldofvape.png'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const { auth } = props
+  const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />
   return (
     <div className="navbar-container">
       <div className="left-column">
@@ -28,8 +30,7 @@ const Navbar = () => {
         <Link to="/" className="logo"><img src={Logo} alt="logo"/></Link>
       </div>
 
-      <SignedInLinks />
-      {/* <SignedOutLinks /> */}
+      { links }
     </div>
 
 
@@ -53,7 +54,7 @@ const Navbar = () => {
 
 const mapStateToProps = (state) => {
   return {
-
+    auth: state.firebase.auth
   }
 }
 
