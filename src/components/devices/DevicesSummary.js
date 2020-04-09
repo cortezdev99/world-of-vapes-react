@@ -8,9 +8,10 @@ const DevicesSummary = ({device}) => {
         </div>
 
         <div className="list-content">
+          <p className="brand">Brand</p>
           <p>{device.brand}</p>
+          <p className="brand">Device</p>
           <p>{device.deviceTitle}</p>
-          <p>{device.descript}</p>
         </div>
     </div>
   )

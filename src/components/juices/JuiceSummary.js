@@ -8,8 +8,8 @@ const JuiceSummary = ({ juice }) => {
         </div>
 
         <div className="list-content">
+          <p className="brand">Brand</p>
           <p>{juice.brand}</p>
-          <p>{juice.descript}</p>
         </div>
     </div>
   )

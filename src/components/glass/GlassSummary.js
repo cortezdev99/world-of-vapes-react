@@ -8,8 +8,8 @@ const GlassSummary = ({glass}) => {
         </div>
 
         <div className="list-content">
-          <span>{glass.brand}</span>
-          <p>{glass.descript}</p>
+          <p className="brand">Brand</p>
+          <p>{glass.brand}</p>
         </div>
     </div>
   )
