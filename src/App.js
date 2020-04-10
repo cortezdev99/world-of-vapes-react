@@ -14,8 +14,14 @@ import CreateDevices from './components/devices/CreateDevices';
 import DevicesDashboard from './components/devices/DevicesDashboard'
 import GlassDashboard from './components/glass/GlassDashboard'
 import JuiceDashboard from './components/juices/JuiceDashboard'
+import Icons from './components/helpers/icons'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+
+    Icons()
+  }
   render() {
     return (
      <Router>

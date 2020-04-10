@@ -10,7 +10,7 @@ class GlassDashboard extends Component {
     const { glass } = this.props
 
     if (!glass) {
-      return <div>Loading...</div>
+      return <div className="auth-ready-container"><p>Loading...</p></div>
     }
 
     return (

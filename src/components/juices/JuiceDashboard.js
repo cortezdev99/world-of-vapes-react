@@ -10,7 +10,7 @@ class JuiceDashboard extends Component {
     const { juices } = this.props
 
     if (!juices) {
-      return <div>Loading...</div>
+      return <div className="auth-ready-container"><p>Loading...</p></div>
     }
 
     return (

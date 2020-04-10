@@ -25,9 +25,12 @@ body {
     justify-content: space-between;
     display: flex;
 
-    button {
+    .chevron {
+      cursor: pointer;
       position: relative;
-      top: -400.165px;
+      top: -480.165px;
+      font-size: 4rem;
+      color: #dfa33a;
     }
   }
 }

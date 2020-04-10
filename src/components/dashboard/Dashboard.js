@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 
-// import slide1 from '../../images/logo-images/80046262_2334526453504871_3559417772481970176_o.jpg'
 import slide1 from '../../images/logo-images/26756251_1873079179649603_4166569873830448498_o.jpg'
-// import slide3 from '../../images/logo-images/32911355_1928413534116167_3691975796269776896_n (1).jpg'
 import slide2 from '../../images/logo-images/27912777_1883853358572185_2027341723001519021_o.jpg'
 import slide3 from '../../images/logo-images/21462252_1819656434991878_7323414897475794928_n.jpg'
 import slide4 from '../../images/logo-images/18921834_1780181655606023_254700353966457051_n.jpg'
@@ -69,8 +68,8 @@ class Dashboard extends Component {
           </div>
 
           <div className="slideshow-buttons">
-            <button onClick={handleSlideLeftClick}>Left</button>
-            <button onClick={handleSlideRightClick}>Right</button>
+            <p className="chevron" onClick={handleSlideLeftClick}><FontAwesomeIcon icon="chevron-circle-left" /></p>
+            <p className="chevron" onClick={handleSlideRightClick}><FontAwesomeIcon icon="chevron-circle-right" /></p>
           </div>
         </div>
 

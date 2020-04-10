@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import Logo from '../../images/logo-images/worldofvape.png'
+import Icons from '../helpers/icons'
 
 const Footer = () => {
+  Icons()
   return (
     <div className="footer">
       <div className="footer-wrapper">
@@ -35,7 +38,7 @@ const Footer = () => {
 
         <div className="social-media">
           <div className="facebook-icon">
-            <a href="">icon</a>
+            <a href=""><FontAwesomeIcon icon={['fab', 'facebook-square']} /></a>
           </div>
         </div>
 

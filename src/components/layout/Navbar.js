@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import Logo from '../../images/logo-images/worldofvape.png'
 import SignedInLinks from './SignedInLinks'
@@ -13,7 +14,7 @@ const Navbar = (props) => {
     <div className="navbar-container">
       <div className="left-column">
         <div className="phone-icon-wrapper">
-          <i className="fas fa-phone-volume"></i>
+          <i className="fas fa-phone-volume"><FontAwesomeIcon icon="phone-volume" /></i>
         </div>
         <div className="hours-number-wrapper">
           <div className="call-num">
@@ -45,7 +46,7 @@ const Navbar = (props) => {
       </div>
       
       <div className="map-icon-wrapper">
-        <i className="fas fa-map-marker-alt"></i>
+        <i className="fas fa-map-marker-alt"><FontAwesomeIcon icon="map-marked-alt" /></i>
       </div>
     </div>
   </div>

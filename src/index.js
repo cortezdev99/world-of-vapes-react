@@ -16,11 +16,16 @@ import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
 import fbConfig from "./config/fbConfig";
 import firebase from "firebase/app";
 
+
 //for render on auth ready
 import { useSelector  } from 'react-redux'
 import { isLoaded  } from 'react-redux-firebase';
 
+import Icons from './components/helpers/icons'
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
+Icons()
 
 const store = createStore(
   rootReducer,
@@ -51,7 +56,8 @@ function AuthIsLoaded({ children }) {
   if (!isLoaded(auth)) {
     return (
       <div className="auth-ready-container">
-        <p>Loading...</p>
+        <div className="loader"><FontAwesomeIcon icon="yin-yang" spin /></div>
+        <div>Loading...</div>
       </div>
     );
   } else {
