@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 import { createGlass } from '../../store/actions/glassActions'
+import { storage } from '../../config/fbConfig'
+import firebase from '../../config/fbConfig'
+
 
 class CreateGlass extends Component {
   constructor() {
@@ -10,8 +13,11 @@ class CreateGlass extends Component {
     this.state = {
       brand: '',
       descript: '',
-      size: ''
+      size: '',
+      progress: 0,
+      url: ''
     }
+    this.fileInput = React.createRef();
   }
 
   handleChange = (event) => {
@@ -22,7 +28,48 @@ class CreateGlass extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.createGlass(this.state)
+    const metadata = {
+      contentType: 'image/jpeg'
+    }
+
+    const uploadTask = storage.ref(`glassImages/${this.fileInput.current.files[0].name}`).put(this.fileInput.current.files[0], metadata)
+
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, (snapshot) => {
+      // progress function ...
+      const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+
+      this.setState({
+        progress: progress
+      })
+
+    }, (error) => {
+      // error function...
+      switch (error.code) {
+        case 'storage/unauthorized':
+          // User doesn't have permission to access the object
+          break;
+    
+        case 'storage/canceled':
+          // User canceled the upload
+          break;
+    
+        case 'storage/unknown':
+          // Unknown error occurred, inspect error.serverResponse
+          break;
+
+        default:
+          break;
+      }
+    }, () => {
+      // complete function ...
+      storage.ref('glassImages').child(this.fileInput.current.files[0].name).getDownloadURL().then(url => {
+        this.setState({ 
+          url: url 
+        })
+      }).then(() => {
+        this.props.createGlass(this.state)
+      })
+    })
   }
   
   render() {
@@ -53,6 +100,16 @@ class CreateGlass extends Component {
               onChange={this.handleChange}
             />
 
+            <input
+              id="image"
+              type="file"
+              ref={this.fileInput}
+              placeholder="Upload File"
+              onChange={this.handleChange}
+            />
+
+            <progress value={this.state.progress} max="100" />
+
             <div className="form-button">
               <button>Create</button>
             </div>
@@ -64,7 +121,6 @@ class CreateGlass extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.firebase.auth)
   return {
     auth: state.firebase.auth
   }

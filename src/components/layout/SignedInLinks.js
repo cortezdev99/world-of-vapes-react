@@ -32,7 +32,7 @@ const SignedInLinks = (props) => {
       </div>
 
       <div className="link">
-        <NavLink to="/createjuice">Create Glass</NavLink>
+        <NavLink to="/createglass">Create Glass</NavLink>
       </div>
 
       <div className="link">

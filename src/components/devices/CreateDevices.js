@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 import { createDevices } from '../../store/actions/devicesActions'
+import { storage } from '../../config/fbConfig'
+import firebase from '../../config/fbConfig'
 
 class CreateDevices extends Component {
   constructor() {
@@ -13,8 +15,11 @@ class CreateDevices extends Component {
       descript: '',
       color1: '',
       color2: '',
-      color3: ''
+      color3: '',
+      url: '',
+      progress: 0
     }
+    this.fileInput = React.createRef();
   }
 
   handleChange = (event) => {
@@ -25,7 +30,48 @@ class CreateDevices extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.createDevices(this.state)
+    const metadata = {
+      contentType: 'image/jpeg'
+    }
+
+    const uploadTask = storage.ref(`deviceImages/${this.fileInput.current.files[0].name}`).put(this.fileInput.current.files[0], metadata)
+
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, (snapshot) => {
+      // progress function ...
+      const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+
+      this.setState({
+        progress: progress
+      })
+
+    }, (error) => {
+      // error function...
+      switch (error.code) {
+        case 'storage/unauthorized':
+          // User doesn't have permission to access the object
+          break;
+    
+        case 'storage/canceled':
+          // User canceled the upload
+          break;
+    
+        case 'storage/unknown':
+          // Unknown error occurred, inspect error.serverResponse
+          break;
+
+        default:
+          break;
+      }
+    }, () => {
+      // complete function ...
+      storage.ref('deviceImages').child(this.fileInput.current.files[0].name).getDownloadURL().then(url => {
+        this.setState({ 
+          url: url 
+        })
+      }).then(() => {
+        this.props.createDevices(this.state)
+      })
+    })
   }
   
   render() {
@@ -76,6 +122,16 @@ class CreateDevices extends Component {
               placeholder="Color"
               onChange={this.handleChange}
             />
+
+            <input
+              id="image"
+              type="file"
+              ref={this.fileInput}
+              placeholder="Upload File"
+              onChange={this.handleChange}
+            />
+
+            <progress value={this.state.progress} max="100" />
 
             <div className="form-button">
               <button>Create</button>
