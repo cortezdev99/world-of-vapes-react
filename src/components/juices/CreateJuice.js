@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 import { createJuice } from '../../store/actions/juiceActions'
+import { storage } from '../../config/fbConfig'
+import firebase from '../../config/fbConfig'
 
 class CreateJuice extends Component {
   constructor() {
@@ -12,8 +14,11 @@ class CreateJuice extends Component {
       descript: '',
       flavor1: '',
       flavor2: '',
-      flavor3: ''
+      flavor3: '',
+      url: '',
+      progress: 0
     }
+    this.fileInput = React.createRef();
   }
 
   handleChange = (event) => {
@@ -21,10 +26,61 @@ class CreateJuice extends Component {
       [event.target.id]: event.target.value
     })
   }
-
+  
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.createJuice(this.state)
+    const metadata = {
+      contentType: 'image/jpeg'
+    }
+
+    const uploadTask = storage.ref(`juiceImages/${this.fileInput.current.files[0].name}`).put(this.fileInput.current.files[0], metadata)
+
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, (snapshot) => {
+      // progress function ...
+      const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+
+      switch (snapshot.state) {
+        case firebase.storage.TaskState.PAUSED: // or 'paused'
+          console.log('Upload is paused');
+          break;
+        case firebase.storage.TaskState.RUNNING: // or 'running'
+          console.log('Upload is running');
+          break;
+        default: 
+          break;
+      }
+
+      this.setState({
+        progress: progress
+      })
+    }, (error) => {
+      // error function...
+      switch (error.code) {
+        case 'storage/unauthorized':
+          // User doesn't have permission to access the object
+          break;
+    
+        case 'storage/canceled':
+          // User canceled the upload
+          break;
+    
+        case 'storage/unknown':
+          // Unknown error occurred, inspect error.serverResponse
+          break;
+
+        default:
+          break;
+      }
+    }, () => {
+      // complete function ...
+      storage.ref('juiceImages').child(this.fileInput.current.files[0].name).getDownloadURL().then(url => {
+        this.setState({ 
+          url: url 
+        })
+      }).then(() => {
+        this.props.createJuice(this.state)
+      })
+    })
   }
   
   render() {
@@ -69,6 +125,16 @@ class CreateJuice extends Component {
               onChange={this.handleChange}
             />
 
+              <input
+                id="image"
+                type="file"
+                ref={this.fileInput}
+                placeholder="Upload File"
+                onChange={this.handleChange}
+              />
+
+              <progress value={this.state.progress} max="100" />
+            
             <div className="form-button">
               <button>Create</button>
             </div>

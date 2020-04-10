@@ -38,7 +38,7 @@ const Footer = () => {
 
         <div className="social-media">
           <div className="facebook-icon">
-            <a href=""><FontAwesomeIcon icon={['fab', 'facebook-square']} /></a>
+            <a href="https://www.facebook.com/WorldOfVapesSLC/"><FontAwesomeIcon icon={['fab', 'facebook-square']} /></a>
           </div>
         </div>
 

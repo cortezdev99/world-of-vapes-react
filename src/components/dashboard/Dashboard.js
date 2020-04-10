@@ -68,8 +68,8 @@ class Dashboard extends Component {
           </div>
 
           <div className="slideshow-buttons">
-            <p className="chevron" onClick={handleSlideLeftClick}><FontAwesomeIcon icon="chevron-circle-left" /></p>
-            <p className="chevron" onClick={handleSlideRightClick}><FontAwesomeIcon icon="chevron-circle-right" /></p>
+            <button className="chevron" onClick={handleSlideLeftClick}><FontAwesomeIcon icon="chevron-circle-left" /></button>
+            <button className="chevron" onClick={handleSlideRightClick}><FontAwesomeIcon icon="chevron-circle-right" /></button>
           </div>
         </div>
 
