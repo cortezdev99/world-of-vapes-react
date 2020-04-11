@@ -4,7 +4,7 @@ const GlassSummary = ({glass}) => {
   return (
     <div className="summary-div">
       <div className="img">
-          <p>Image goes here</p>
+          <img src={glass.url} alt="image" className="images" />
         </div>
 
         <div className="list-content">

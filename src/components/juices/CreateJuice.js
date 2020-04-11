@@ -77,56 +77,73 @@ class CreateJuice extends Component {
     const { auth } = this.props
     if (!auth.uid) return <Redirect to="/auth" />
     return (
-      <div className="signin-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="input-field">
-            <input
-              id="brand"
-              type="text"
-              placeholder="Brand Name"
-              onChange={this.handleChange}
-            />
+      <div className="form-container">
+        <form onSubmit={this.handleSubmit} className="create-form">
+          <h5>Post a new juice!</h5>
+          <div className="input-field-group">
+            <div>
+              <input
+                id="brand"
+                type="text"
+                placeholder="Brand Name"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <input
-              id="descript"
-              type="text"
-              placeholder="Description"
-              onChange={this.handleChange}
-            />
+            <div>
+              <input
+                id="descript"
+                type="text"
+                placeholder="Description"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <input
-              id="flavor1"
-              type="text"
-              placeholder="Flavor"
-              onChange={this.handleChange}
-            />
+            <div>
+              <input
+                id="flavor1"
+                type="text"
+                placeholder="Flavor"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <input
-              id="flavor2"
-              type="text"
-              placeholder="Flavor"
-              onChange={this.handleChange}
-            />
+            <div>
+              <input
+                id="flavor2"
+                type="text"
+                placeholder="Flavor"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <input
-              id="flavor3"
-              type="text"
-              placeholder="Flavor"
-              onChange={this.handleChange}
-            />
+            <div>
+              <input
+                id="flavor3"
+                type="text"
+                placeholder="Flavor"
+                onChange={this.handleChange}
+              />
+            </div>
 
+            <div>
               <input
                 id="image"
+                className="input image-input"
                 type="file"
                 ref={this.fileInput}
                 placeholder="Upload File"
                 onChange={this.handleChange}
               />
+            </div>
 
+            <div className="progress">
               <progress value={this.state.progress} max="100" />
+            </div>
+
             
-            <div className="form-button">
-              <button>Create</button>
+            <div className="button-wrapper">
+              <button className="btn">Create</button>
             </div>
           </div>
         </form>

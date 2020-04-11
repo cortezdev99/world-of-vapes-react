@@ -76,42 +76,55 @@ class CreateGlass extends Component {
     const { auth } = this.props
     if (!auth.uid) return <Redirect to="/auth" />
     return (
-      <div className="signin-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="input-field">
-            <input
-              id="brand"
-              type="text"
-              placeholder="Brand Name"
-              onChange={this.handleChange}
-            />
+      <div className="form-container">
+        <form onSubmit={this.handleSubmit} className="create-form">
+          <h5>Post a new glass piece!</h5>
+          <div className="input-field-group">
+            <div>
+              <input
+                id="brand"
+                type="text"
+                placeholder="Brand Name"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <input
-              id="descript"
-              type="text"
-              placeholder="Description"
-              onChange={this.handleChange}
-            />
+            <div>
+              <input
+                id="descript"
+                type="text"
+                placeholder="Description"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <input
-              id="size"
-              type="text"
-              placeholder="Size"
-              onChange={this.handleChange}
-            />
+            <div>
+              <input
+                id="size"
+                type="text"
+                placeholder="Size"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <input
-              id="image"
-              type="file"
-              ref={this.fileInput}
-              placeholder="Upload File"
-              onChange={this.handleChange}
-            />
+            <div>
+              <input
+                id="image"
+                className="input image-input"
+                type="file"
+                ref={this.fileInput}
+                placeholder="Upload File"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <progress value={this.state.progress} max="100" />
+            <div className="progress">
+              <progress value={this.state.progress} max="100" />
+            </div>
 
-            <div className="form-button">
-              <button>Create</button>
+
+            <div className="button-wrapper">
+              <button className="btn">Create</button>
             </div>
           </div>
         </form>

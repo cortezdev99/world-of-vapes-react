@@ -78,63 +78,87 @@ class CreateDevices extends Component {
     const { auth } = this.props
     if (!auth.uid) return <Redirect to="/auth" />
     return (
-      <div className="signin-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="input-field">
-            <input
-              id="brand"
-              type="text"
-              placeholder="Brand Name"
-              onChange={this.handleChange}
-            />
+      <div className="form-container">
+        <form onSubmit={this.handleSubmit} className="create-form">
+          <h5>Post a new device!</h5>
+          <div className="input-field-group">
+            <div>
+              <input
+                id="brand"
+                className="input"
+                type="text"
+                placeholder="Brand Name"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <input
-              id="deviceTitle"
-              type="text"
-              placeholder="Device Name"
-              onChange={this.handleChange}
-            />
+            <div>
+              <input
+                id="deviceTitle"
+                className="input"
+                type="text"
+                placeholder="Device Name"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <input
-              id="descript"
-              type="text"
-              placeholder="Description"
-              onChange={this.handleChange}
-            />
+            <div>
+              <input
+                id="descript"
+                className="input"
+                type="text"
+                placeholder="Description"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <input
-              id="color1"
-              type="text"
-              placeholder="Color"
-              onChange={this.handleChange}
-            />
+            <div>
+              <input
+                id="color1"
+                className="input"
+                type="text"
+                placeholder="Color"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <input
-              id="color2"
-              type="text"
-              placeholder="Color"
-              onChange={this.handleChange}
-            />
+            <div>
+              <input
+                id="color2"
+                className="input"
+                type="text"
+                placeholder="Color"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <input
-              id="color3"
-              type="text"
-              placeholder="Color"
-              onChange={this.handleChange}
-            />
+            <div>
+              <input
+                id="color3"
+                className="input"
+                type="text"
+                placeholder="Color"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <input
-              id="image"
-              type="file"
-              ref={this.fileInput}
-              placeholder="Upload File"
-              onChange={this.handleChange}
-            />
+            <div>
+              <input
+                id="image"
+                className="input image-input"
+                type="file"
+                ref={this.fileInput}
+                placeholder="Upload File"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <progress value={this.state.progress} max="100" />
+            <div className="progress">
+              <progress value={this.state.progress} max="100" />
+            </div>
 
-            <div className="form-button">
-              <button>Create</button>
+            <div className="button-wrapper">
+              <button className="btn">Create</button>
             </div>
           </div>
         </form>

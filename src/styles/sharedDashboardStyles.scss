@@ -44,12 +44,18 @@
         align-items: center;
 
         .img {
-          height: 100%;
-          width: 20%;
+          height: 210px;
+          width: 210px;
           // border: 7px solid #dfa33a;
           display: flex;
           justify-content: center;
           align-items: center;
+
+          .images {
+            width: 100%;
+            height: 95%;
+            border: 5px solid #d5a33a;
+          }
         }
 
         .list-content {

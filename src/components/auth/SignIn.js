@@ -26,27 +26,33 @@ class SignIn extends Component {
   render() {
     const { authError } = this.props
     return (
-      <div className="signin-container">
-        <form onSubmit={this.handleSubmit}>
+      <div className="form-container">
+        <form onSubmit={this.handleSubmit} className="create-form">
           <h5>Sign In!</h5>
+          <div className="input-field-group">
+            <div>
+              <input
+                id="email"
+                className="input"
+                type="email"
+                placeholder="Email"
+                onChange={this.handleChange}
+              />
+            </div>
 
-          <div className="input-field">
-            <input
-              id="email"
-              type="email"
-              placeholder="Email"
-              onChange={this.handleChange}
-            />
+            <div>
+              <input
+                id="password"
+                className="input"
+                type="password"
+                placeholder="Password"
+                onChange={this.handleChange}
+              />
+            </div>
 
-            <input
-              id="password"
-              type="password"
-              placeholder="Password"
-              onChange={this.handleChange}
-            />
 
-            <div className="form-button">
-              <button>Login</button>
+            <div className="button-wrapper">
+              <button className="btn signin-btn">Login</button>
               { authError ? <div className="error">{authError}</div> : null}
             </div>
           </div>
