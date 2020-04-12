@@ -17,7 +17,8 @@ class CreateDevices extends Component {
       color2: '',
       color3: '',
       url: '',
-      progress: 0
+      progress: 0,
+      fileName: ''
     }
     this.fileInput = React.createRef();
   }
@@ -66,7 +67,8 @@ class CreateDevices extends Component {
       // complete function ...
       storage.ref('deviceImages').child(this.fileInput.current.files[0].name).getDownloadURL().then(url => {
         this.setState({ 
-          url: url 
+          url: url,
+          fileName: this.fileInput.current.files[0].name
         })
       }).then(() => {
         this.props.createDevices(this.state)

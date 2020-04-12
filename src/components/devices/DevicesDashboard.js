@@ -7,7 +7,7 @@ import DevicesList from './DevicesList'
 
 class DevicesDashboard extends Component {
   render() {
-    const { devices } = this.props
+    const { devices, auth } = this.props
     if (!devices) {
       return <div className="auth-ready-container"><p>Loading...</p></div>
     }
@@ -22,7 +22,7 @@ class DevicesDashboard extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    devices: state.firestore.ordered.devices
+    devices: state.firestore.ordered.devices,
   }
 }
 

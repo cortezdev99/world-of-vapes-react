@@ -14,6 +14,12 @@ const devicesReducer  = (state = initState, action) => {
     case 'CREATE_DEVICE_ERR':
       console.log('create device error', action.err);
       return state;
+    case 'DELETE_DEVICE':
+      console.log('deleted device successfully')
+      return state;
+    case 'DELETE_DEVICE_ERR':
+      console.log('delete device error', action.err)
+      return state;
     default:
       return state;
   }
