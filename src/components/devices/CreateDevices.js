@@ -34,46 +34,51 @@ class CreateDevices extends Component {
     const metadata = {
       contentType: 'image/jpeg'
     }
-
-    const uploadTask = storage.ref(`deviceImages/${this.fileInput.current.files[0].name}`).put(this.fileInput.current.files[0], metadata)
-
-    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, (snapshot) => {
-      // progress function ...
-      const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
-
-      this.setState({
-        progress: progress
-      })
-
-    }, (error) => {
-      // error function...
-      switch (error.code) {
-        case 'storage/unauthorized':
-          // User doesn't have permission to access the object
-          break;
     
-        case 'storage/canceled':
-          // User canceled the upload
-          break;
-    
-        case 'storage/unknown':
-          // Unknown error occurred, inspect error.serverResponse
-          break;
-
-        default:
-          break;
-      }
-    }, () => {
-      // complete function ...
-      storage.ref('deviceImages').child(this.fileInput.current.files[0].name).getDownloadURL().then(url => {
-        this.setState({ 
-          url: url,
-          fileName: this.fileInput.current.files[0].name
+    if (!this.fileInput.current.files[0]) {
+      this.props.createDevices(this.state)
+    } else {
+      const uploadTask = storage.ref(`deviceImages/${this.fileInput.current.files[0].name}`).put(this.fileInput.current.files[0], metadata)
+  
+      uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, (snapshot) => {
+        // progress function ...
+        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+  
+        this.setState({
+          progress: progress
         })
-      }).then(() => {
-        this.props.createDevices(this.state)
+  
+      }, (error) => {
+        // error function...
+        switch (error.code) {
+          case 'storage/unauthorized':
+            // User doesn't have permission to access the object
+            break;
+      
+          case 'storage/canceled':
+            // User canceled the upload
+            break;
+      
+          case 'storage/unknown':
+            // Unknown error occurred, inspect error.serverResponse
+            break;
+  
+          default:
+            break;
+        }
+      }, () => {
+        // complete function ...
+        storage.ref('deviceImages').child(this.fileInput.current.files[0].name).getDownloadURL().then(url => {
+          this.setState({ 
+            url: url,
+            fileName: this.fileInput.current.files[0].name
+          })
+        }).then(() => {
+          this.props.createDevices(this.state)
+        })
       })
-    })
+    }
+
   }
   
   render() {
