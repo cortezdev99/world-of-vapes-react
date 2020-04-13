@@ -10,7 +10,7 @@ const JuiceDetails = (props) => {
   return (
     <div className="details-container">
       <div className="img-details">
-        <img src={juice.url} alt="image" className="details-img"/>
+        <img src={juice.url} alt="" className="details-img"/>
       </div>
 
       <div className="content-details">

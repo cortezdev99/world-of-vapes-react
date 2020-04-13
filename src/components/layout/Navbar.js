@@ -40,9 +40,9 @@ const Navbar = (props) => {
         <div className="get-directions">
           <p>Get Directions!</p>
         </div>
-        <Link to="https://www.google.com/maps/place/4150+Carriage+Square,+Taylorsville,+UT+84129/@40.6804047,-111.941192,18.25z/data=!4m5!3m4!1s0x87528b83501b549f:0x7d01fe3dfeace4aa!8m2!3d40.6808657!4d-111.9410474"
+        <a href="https://www.google.com/maps/place/4150+Carriage+Square,+Taylorsville,+UT+84129/@40.6804047,-111.941192,18.25z/data=!4m5!3m4!1s0x87528b83501b549f:0x7d01fe3dfeace4aa!8m2!3d40.6808657!4d-111.9410474"
           id="address-link-google">4150 s Carriage Square Taylorsville, Utah, 84129
-        </Link>
+        </a>
       </div>
       
       <div className="map-icon-wrapper">

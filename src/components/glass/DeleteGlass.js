@@ -12,7 +12,7 @@ class DeleteGlass extends Component {
       const storageRef = storage.ref()
       const imagesRef = storageRef.child('glassImages')
 
-      if (glass.url == "" || null || undefined || false) {
+      if (glass.url === "" || null || undefined || false) {
         firestore.collection("glass").doc(`${glass.id}`).delete().then(() => {
           console.log('successfully deleted')
         }).catch((err) => {

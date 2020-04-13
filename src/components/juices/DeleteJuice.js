@@ -13,7 +13,7 @@ class DeleteJuice extends Component {
       const storageRef = storage.ref()
       const imagesRef = storageRef.child('juiceImages')
 
-      if (juice.fileName == "" || null || undefined || false) {
+      if (juice.fileName === "" || null || undefined || false) {
         firestore.collection("juices").doc(`${juice.id}`).delete().then(() => {
           console.log('successfully deleted')
         }).catch((err) => {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
 
 class Modal extends Component {
   constructor(props) {
@@ -17,7 +16,7 @@ class Modal extends Component {
       })
     }
 
-    if (this.state.verified == false) {
+    if (this.state.verified === false) {
       return (
         <div id="myModal" className="modal">
             <div className="modal-content">

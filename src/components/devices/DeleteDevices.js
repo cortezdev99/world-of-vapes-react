@@ -12,7 +12,7 @@ class DeleteDevices extends Component {
       const storageRef = storage.ref()
       const imagesRef = storageRef.child('deviceImages')
 
-      if (device.url == "" || null || undefined || false) {
+      if (device.url === "" || null || undefined || false) {
         firestore.collection("devices").doc(`${device.id}`).delete().then(() => {
           console.log('successfully deleted')
         }).catch((err) => {

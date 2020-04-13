@@ -4,7 +4,7 @@ const DevicesSummary = ({device}) => {
   return (
     <div className="summary-div">
       <div className="img">
-        <img src={device.url} alt="image" className="images" />
+        <img src={device.url} alt="" className="images" />
       </div>
 
       <div className="list-content">

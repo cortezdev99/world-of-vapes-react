@@ -10,7 +10,7 @@ const GlassDetails = (props) => {
   return (
     <div className="details-container">
       <div className="img-details">
-        <img src={glass.url} alt="image" className="details-img"/>
+        <img src={glass.url} alt="" className="details-img"/>
       </div>
 
       <div className="content-details">
