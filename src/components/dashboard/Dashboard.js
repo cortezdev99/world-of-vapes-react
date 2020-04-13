@@ -21,7 +21,6 @@ import brand10 from '../../images/brands-images/innokin.jpg'
 import brand11 from '../../images/brands-images/humble_juice_co.jpg'
 import brand12 from '../../images/brands-images/hellvape.jpg'
 
-
 class Dashboard extends Component {
   constructor() {
     super()

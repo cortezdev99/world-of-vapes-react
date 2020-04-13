@@ -4,12 +4,18 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 
 import DevicesList from './DevicesList'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 class DevicesDashboard extends Component {
   render() {
-    const { devices, auth } = this.props
+    const { devices } = this.props
     if (!devices) {
-      return <div className="auth-ready-container"><p>Loading...</p></div>
+      return (
+        <div className="auth-ready-container">
+          <div className="loader"><FontAwesomeIcon icon="yin-yang" spin /></div>
+          <div>Loading...</div>
+        </div>
+      )
     }
 
     return (

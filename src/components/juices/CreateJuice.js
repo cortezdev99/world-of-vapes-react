@@ -17,7 +17,7 @@ class CreateJuice extends Component {
       flavor3: '',
       url: '',
       progress: 0,
-      fileName: ''
+      fileName: '',
     }
     this.fileInput = React.createRef();
   }

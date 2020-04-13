@@ -4,13 +4,19 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 
 import JuiceList from './JuiceList'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 class JuiceDashboard extends Component {
   render() {
     const { juices } = this.props
 
     if (!juices) {
-      return <div className="auth-ready-container"><p>Loading...</p></div>
+      return (
+      <div className="auth-ready-container">
+        <div className="loader"><FontAwesomeIcon icon="yin-yang" spin /></div>
+        <div>Loading...</div>
+      </div>
+      )
     }
 
     return (

@@ -27,11 +27,18 @@ body {
     display: flex;
 
     .chevron {
+      background-color: transparent;
+      border: 1px solid transparent;
       cursor: pointer;
       position: relative;
       top: -480.165px;
       font-size: 4rem;
       color: #dfa33a;
+
+      &:focus {
+        outline: none;
+        text-decoration: none;
+      }
     }
   }
 }

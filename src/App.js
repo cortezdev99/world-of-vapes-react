@@ -15,6 +15,7 @@ import DevicesDashboard from './components/devices/DevicesDashboard'
 import GlassDashboard from './components/glass/GlassDashboard'
 import JuiceDashboard from './components/juices/JuiceDashboard'
 import Icons from './components/helpers/icons'
+import Modal from './components/layout/Modal'
 
 class App extends Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class App extends Component {
               <Route path='/createglass' component={CreateGlass} />
               <Route path='/createdevice' component={CreateDevices} />
             </Switch>
+            <Modal />
           <Footer />
         </div>
      </Router>
