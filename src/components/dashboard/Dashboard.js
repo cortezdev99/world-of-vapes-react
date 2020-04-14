@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Link } from 'react-router-dom'
 
 
 import slide1 from '../../images/logo-images/26756251_1873079179649603_4166569873830448498_o.jpg'

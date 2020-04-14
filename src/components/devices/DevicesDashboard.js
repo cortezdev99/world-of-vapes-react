@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 class DevicesDashboard extends Component {
   render() {
     const { devices } = this.props
-    console.log(devices)
     if (!devices) {
       return (
         <div className="auth-ready-container">
