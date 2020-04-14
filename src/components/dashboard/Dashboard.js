@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Link } from 'react-router-dom'
 
 
 import slide1 from '../../images/logo-images/26756251_1873079179649603_4166569873830448498_o.jpg'
@@ -81,14 +82,12 @@ class Dashboard extends Component {
             <div className="brand-group">
               <div className="brands">
                 <div className="brand-item">
-                  <a href="#" className="brand-link"></a>
                   <img src={brand1} alt="img"/>
                 </div>
               </div>
 
               <div className="brands">
                 <div className="brand-item bottom-brand-item">
-                  <a href="#" className="brand-link"></a>
                   <img src={brand2} alt="img"/>
                 </div>
               </div>
@@ -97,14 +96,12 @@ class Dashboard extends Component {
             <div className="brand-group">
               <div className="brands">
                 <div className="brand-item">
-                  <a href="#" className="brand-link"></a>
                   <img src={brand3} alt="img"/>
                 </div>
               </div>
 
               <div className="brands">
                 <div className="brand-item bottom-brand-item">
-                  <a href="#" className="brand-link"></a>
                   <img src={brand4} alt="img"/>
                 </div>
               </div>
@@ -113,14 +110,12 @@ class Dashboard extends Component {
             <div className="brand-group">
               <div className="brands">
                 <div className="brand-item">
-                  <a href="#" className="brand-link"></a>
                   <img src={brand5} alt="img"/>
                 </div>
               </div>
 
               <div className="brands">
                 <div className="brand-item bottom-brand-item">
-                  <a href="#" className="brand-link"></a>
                   <img src={brand6} alt="img"/>
                 </div>
               </div>
@@ -129,14 +124,12 @@ class Dashboard extends Component {
             <div className="brand-group">
               <div className="brands">
                 <div className="brand-item">
-                  <a href="#" className="brand-link"></a>
                   <img src={brand7} alt="img"/>
                 </div>
               </div>
 
               <div className="brands">
                 <div className="brand-item bottom-brand-item">
-                  <a href="#" className="brand-link"></a>
                   <img src={brand8} alt="img"/>
                 </div>
               </div>
@@ -145,14 +138,12 @@ class Dashboard extends Component {
             <div className="brand-group">
               <div className="brands">
                 <div className="brand-item">
-                  <a href="#" className="brand-link"></a>
                   <img src={brand9} alt="img"/>
                 </div>
               </div>
 
               <div className="brands">
                 <div className="brand-item bottom-brand-item">
-                  <a href="#" className="brand-link"></a>
                   <img src={brand10} alt="img"/>
                 </div>
               </div>
@@ -161,14 +152,12 @@ class Dashboard extends Component {
             <div className="brand-group last-brand-group">
               <div className="brands">
                 <div className="brand-item">
-                  <a href="#" className="brand-link"></a>
                   <img src={brand11} alt="img"/>
                 </div>
               </div>
 
               <div className="brands">
                 <div className="brand-item bottom-brand-item">
-                  <a href="#" className="brand-link"></a>
                   <img src={brand12} alt="img"/>
                 </div>
               </div>

@@ -8,6 +8,7 @@ import DeleteDevices from './DeleteDevices'
 class DeviceList extends Component {
   render() {
     const { devices, auth } = this.props
+    console.log(devices)
 
     if (auth.uid) {
       return (
