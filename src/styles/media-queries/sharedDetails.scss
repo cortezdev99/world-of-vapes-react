@@ -8,3 +8,32 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .details-container {
+    .img-details {
+      height: 50%;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .details-container {
+    flex-direction: column;
+    height: 100%;
+
+    .img-details {
+      margin-top: 10px;
+      width: 60%;
+    }
+
+    .content-details {
+      margin-top: 10px;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 0px;
+      justify-content: initial;
+      align-items: initial;
+      grid-template-columns: none;
+    }
+  }
+}

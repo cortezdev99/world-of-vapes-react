@@ -7,3 +7,23 @@
     }
   }
 }
+
+@media (max-width: 375px) {
+  .list-dashboard-container {
+
+    .list-container {
+
+      .dashboard-link {
+        height: 28rem;
+
+        .summary-div {
+          flex-direction: column;
+
+          .img {
+            padding-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}

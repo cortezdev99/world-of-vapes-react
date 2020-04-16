@@ -24,3 +24,34 @@
     }
   }
 }
+
+@media (max-width: 375px) {
+  html {
+
+    .navbar-container {
+      flex-direction: column;
+      height: 100%;
+      padding: 0px;
+      padding-top: 2rem;
+      padding-bottom: 4rem;
+  
+      .left-column {
+        width: 100%;
+      }
+  
+      .center-column {
+        .links {
+          flex-direction: column;
+  
+          .link {
+            padding: 1rem;
+          }
+        }
+      }
+  
+      .right-column {
+        width: 60%;
+      }
+    }
+  }
+}
