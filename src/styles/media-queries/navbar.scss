@@ -1,0 +1,26 @@
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    height: 100%;
+
+    .left-column {
+      order: 2;
+      width: 100%;
+      padding-top: 2em;
+      padding-bottom: 2em;
+    }
+
+    .center-column {
+      order: 1;
+
+      .links {
+        width: 140%;
+      }
+    }
+
+    .right-column {
+      order: 3;
+      width: 40%;
+    }
+  }
+}
