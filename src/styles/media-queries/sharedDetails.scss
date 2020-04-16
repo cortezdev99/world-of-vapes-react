@@ -17,6 +17,28 @@
   }
 }
 
+@media (max-width: 414px) {
+  .details-container {
+    flex-direction: column;
+    height: 100%;
+
+    .img-details {
+      margin-top: 10px;
+      width: 60%;
+    }
+
+    .content-details {
+      width: 100%;
+      margin-top: 10px;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 0px;
+      justify-content: initial;
+      align-items: initial;
+      grid-template-columns: none;
+    }
+  }
+}
+
 @media (max-width: 375px) {
   .details-container {
     flex-direction: column;
@@ -28,6 +50,7 @@
     }
 
     .content-details {
+      width: 100%;
       margin-top: 10px;
       grid-template-rows: 1fr 1fr 1fr;
       gap: 0px;

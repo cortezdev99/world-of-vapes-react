@@ -94,6 +94,53 @@
   }
 }
 
+@media (max-width: 414px) {
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+
+    .dashboard-container {
+
+      .slideshow-container {
+
+        .slideshow-buttons {
+
+          .chevron {
+            top: -130.156px;
+            font-size: 2rem;
+          }
+        }
+      }
+
+      .brands-slideshow-container {
+
+        .brands-container {
+          grid-template-columns: 1fr 1fr;
+          gap: 10px; 
+
+          .brand-group {
+            padding-right: 0px;
+            width: initial;
+            
+            .brands {
+              display: flex;
+              justify-content: center;
+
+              .brand-item {
+                padding-bottom: 0px;
+
+                img {
+                  border: 4px solid #dfa33a;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 375px) {
   html, body {
     max-width: 100%;
