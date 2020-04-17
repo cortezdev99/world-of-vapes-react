@@ -28,9 +28,12 @@
     }
 
     .content-details {
+      height: 100%;
       width: 100%;
+      display: flex;
+      flex-direction: column;
       margin-top: 10px;
-      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-rows: none;
       gap: 0px;
       justify-content: initial;
       align-items: initial;
@@ -50,9 +53,12 @@
     }
 
     .content-details {
+      height: 100%;
       width: 100%;
+      display: flex;
+      flex-direction: column;
       margin-top: 10px;
-      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-rows: none;
       gap: 0px;
       justify-content: initial;
       align-items: initial;

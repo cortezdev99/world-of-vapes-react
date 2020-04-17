@@ -16,19 +16,19 @@ const Footer = () => {
 
         <div className="links">
           <div className="link">
-            <Link to="/" >Homepage</Link>
+            <Link exact to="/" >Homepage</Link>
           </div>
 
           <div className="link">
-            <Link to="/" >Devices</Link>
+            <Link to="/devices" >Devices</Link>
           </div>
 
           <div className="link">
-            <Link to="/" >Juice</Link>
+            <Link to="/juice" >Juice</Link>
           </div>
 
           <div className="link">
-            <Link to="/" >Glass</Link>
+            <Link to="/glass" >Glass</Link>
           </div>
         </div>
 
